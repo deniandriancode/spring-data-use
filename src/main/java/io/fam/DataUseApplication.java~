@@ -1,0 +1,30 @@
+package io.fam;
+
+import java.time.*;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.*;
+
+@SpringBootApplication
+public class DataUseApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(DataUseApplication.class, args);
+	}
+
+	@Bean
+	public CommandLineRunner demo(UserRepository repository) {
+		return (args) -> {
+			repository.save(new User(Long.valueOf(1L), "John", "Doe", "johndoe@email.com", Double.valueOf(7658.42), "New York", LocalDate.of(1998, Month.MAY, 24)));
+			repository.save(new User(Long.valueOf(2L), "John", "Doe", "johndoe@email.com", Double.valueOf(7658.42), "New York", LocalDate.of(1998, Month.MAY, 24)));
+			repository.save(new User(Long.valueOf(3L), "John", "Doe", "johndoe@email.com", Double.valueOf(7658.42), "New York", LocalDate.of(1998, Month.MAY, 24)));
+			repository.save(new User(Long.valueOf(4L), "John", "Doe", "johndoe@email.com", Double.valueOf(7658.42), "New York", LocalDate.of(1998, Month.MAY, 24)));
+			repository.save(new User(Long.valueOf(5L), "John", "Doe", "johndoe@email.com", Double.valueOf(7658.42), "New York", LocalDate.of(1998, Month.MAY, 24)));
+			repository.save(new User(Long.valueOf(6L), "John", "Doe", "johndoe@email.com", Double.valueOf(7658.42), "New York", LocalDate.of(1998, Month.MAY, 24)));
+			repository.save(new User(Long.valueOf(7L), "John", "Doe", "johndoe@email.com", Double.valueOf(7658.42), "New York", LocalDate.of(1998, Month.MAY, 24)));
+		};
+	}
+
+}
